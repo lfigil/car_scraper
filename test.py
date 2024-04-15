@@ -15,8 +15,8 @@ def save_to_csv(data_list, file_path):
 
     print(f"Saving {len(df)} listings...")
 
-default_path = "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&radius=25&make=honda&model=honda%7Ccr-v"
-file_path = '/home/lfigil/Documents/car_scraper/honda_data2.csv'
+default_path = "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=honda&model=honda%7Cpilot&year=2019-*"
+file_path = '/home/lfigil/Documents/car_scraper/car_dataset_original/honda_pilot.csv'
 
 while True:
     vehicles_list = []
