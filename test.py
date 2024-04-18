@@ -15,8 +15,8 @@ def save_to_csv(data_list, file_path):
 
     print(f"Saving {len(df)} listings...")
 
-default_path = "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=honda&model=honda%7Cpilot&year=2019-*"
-file_path = '/home/lfigil/Documents/car_scraper/car_dataset_original/honda_pilot.csv'
+default_path = "https://www.edmunds.com/inventory/srp.html?historyinfo=isOneOwner%2CnoAccidents&inventorytype=used%2Ccpo&make=mazda&model=mazda%7Ccx-5%2Cmazda%7Ccx-50&year=2020-*"
+file_path = '/home/lfigil/Documents/car_scraper/car_dataset_original/mazda_suv.csv'
 
 while True:
     vehicles_list = []
@@ -45,15 +45,15 @@ while True:
                 car_price = listing.find_element(By.CSS_SELECTOR, 'div.pr-0.text-right.d-flex.justify-content-between.col-5').text
                 car_details = listing.find_element(By.CSS_SELECTOR, 'div.text-gray-darker.row').text
 
-                # Open the <details> tag to scrape additional information
-                summary = listing.find_element(By.CSS_SELECTOR, 'summary')
-                if not summary.is_selected():
-                    summary.click()  # Open the <details> tag
-                    time.sleep(1)  # Add a delay to allow the content to load
+                # # Open the <details> tag to scrape additional information
+                # summary = listing.find_element(By.CSS_SELECTOR, 'summary')
+                # if not summary.is_selected():
+                #     summary.click()  # Open the <details> tag
+                #     time.sleep(1)  # Add a delay to allow the content to load
 
-                # Scrape the long details
-                details_2 = listing.find_elements(By.TAG_NAME, 'p')
-                car_details_long = [d.text for d in details_2]
+                # # Scrape the long details
+                # details_2 = listing.find_elements(By.TAG_NAME, 'p')
+                # car_details_long = [d.text for d in details_2]
 
                 # Store the vehicle data in a dictionary
                 vehicle = {
@@ -61,7 +61,7 @@ while True:
                     'year_model': car_year_model,
                     'price': car_price,
                     'details_short': car_details,
-                    'details_long': car_details_long
+                    # 'details_long': car_details_long
                 }
 
                 # Append the vehicle data to the list
